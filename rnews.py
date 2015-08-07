@@ -10,12 +10,11 @@ def hello_world():
     submissions = r.get_subreddit('news').get_hot(limit=30)
     count = 0
     posts = []
-    title = "Yay Title"
     for sub in submissions:
         count += 1
         new_post = {"title":sub.title, "ups":sub.ups, "url":sub.url, "count":count}
         posts.append(new_post)
-    return render_template("index.html", posts=posts, title=title)
+    return render_template("index.html", posts=posts)
 
 if __name__ == '__main__':
     app.run()
